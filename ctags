@@ -1,0 +1,6 @@
+--recurse=yes
+--exclude=.git
+--exclude=db/*
+--exclude=log/*
+--exclude=logs/*
+--tag-relative=yes

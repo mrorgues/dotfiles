@@ -1,0 +1,28 @@
+!/bin/zsh
+
+# Project Path
+PROJECT_PATH=`pwd -P`
+
+# local .vimrc
+if [ -f .vimrc ]; then
+   mv -f .vimrc .vimrc.back
+else
+   echo "autocmd BufWritePost *.php,*.html,*.js,*py silent! !ctags -R -f $PROJECT_PATH/tags $PROJECT_PATH" >> .vimrc.back
+fi
+
+# Clean (Delete all .vimrc and tags files included into the project)
+find . -name ".vimrc" -exec rm {} \;
+find . -name "tags" -exec rm {} \;
+
+# Restore backup files (.vimrc.back and tags.back)
+mv .vimrc.back .vimrc
+
+# Create temp file
+touch tags
+
+# Create symlinks
+find . -type d -mindepth 1 -exec ln -s $PROJECT_PATH/.vimrc {}/.vimrc \;
+find . -type d -mindepth 1 -exec ln -s $PROJECT_PATH/tags {}/tags \;
+
+# Tags will be generate next time a file is updated
+rm tags
