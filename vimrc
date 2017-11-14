@@ -133,7 +133,7 @@ let g:phpcomplete_mappings = {
 "match Password /pass.*\s*=\s*\k\{-}\zs[^ ]*\ze.\{-}/
 
 " swap file location
-set directory^=$HOME/.vim/tmp//
+set directory^=$HOME/.vim/tmp/
 
 set exrc
 set secure
