@@ -102,7 +102,7 @@ noremap <C-Left> gT
 noremap <C-Right> gt
 noremap [1;5D gT
 noremap [1;5C gt
-noremap  :tabnew 
+noremap ^T :tabnew 
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 nmap <silent> gw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<cr>:nohl<cr><c-o>
 
